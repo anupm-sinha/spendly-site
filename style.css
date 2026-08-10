@@ -1,0 +1,119 @@
+/* Spendly site — self-contained, no external requests.
+   A privacy policy that loaded third-party fonts and trackers would be
+   its own punchline, so everything here is local. */
+
+:root {
+  --accent: #a855f7;
+  --accent-2: #c084fc;
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --line: #e2e8f0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1220;
+    --surface: #0f172a;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --line: #1e293b;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 24px 80px; }
+
+header.hero {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  padding: 56px 24px 48px;
+  margin-bottom: 40px;
+}
+
+header.hero .wrap { padding-bottom: 0; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px; height: 64px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  font-size: 30px; font-weight: 700;
+  margin-bottom: 18px;
+}
+
+header.hero h1 { margin: 0 0 6px; font-size: 2.4rem; letter-spacing: -0.02em; }
+header.hero p { margin: 0; opacity: 0.92; font-size: 1.05rem; }
+
+h2 {
+  margin: 40px 0 12px;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+h3 { margin: 28px 0 8px; font-size: 1.02rem; }
+
+p, li { color: var(--text); }
+.muted { color: var(--muted); }
+
+a { color: var(--accent); }
+@media (prefers-color-scheme: dark) { a { color: var(--accent-2); } }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px 22px;
+  margin: 22px 0;
+}
+
+.card.highlight {
+  border-color: var(--accent);
+  background: linear-gradient(
+    135deg, rgba(168, 85, 247, 0.08), rgba(192, 132, 252, 0.05));
+}
+
+table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.95rem; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; }
+
+code {
+  background: rgba(127, 127, 127, 0.14);
+  padding: 2px 6px; border-radius: 5px;
+  font-size: 0.9em;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  margin-top: 56px; padding-top: 24px;
+  color: var(--muted); font-size: 0.9rem;
+}
+
+.cta {
+  display: inline-block;
+  background: var(--accent); color: #fff;
+  text-decoration: none; font-weight: 600;
+  padding: 12px 22px; border-radius: 12px;
+  margin-top: 8px;
+}
+
+ul.clean { padding-left: 20px; }
+ul.clean li { margin: 6px 0; }
