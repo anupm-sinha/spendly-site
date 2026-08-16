@@ -27,10 +27,15 @@
     transactions, budgets, accounts, goals, notes, tags and receipt photos —
     are stored <strong>only on your device</strong>. We do not have a copy of
     them. There is no account to create and nothing to sign in to.</p>
-    <p style="margin-bottom:0"><strong>In the current version, the app makes no
-    network connections at all.</strong> On Android it is built without the
-    <code>INTERNET</code> permission, so it is not merely policy but
-    technically incapable of transmitting your data.</p>
+    <p><strong>Spendly never sends your financial data anywhere.</strong>
+    There is no sync, no analytics, no advertising and no crash reporting.</p>
+    <p style="margin-bottom:0">The app makes exactly one kind of network
+    request, and only if you switch it on: the optional <strong>Money
+    reading</strong> section fetches public finance headlines from a few news
+    publishers. It is <strong>off by default</strong>, it carries nothing about
+    you, and your transactions are never involved. Everything else in Spendly —
+    every calculation, every scan, every backup — works with no connection at
+    all.</p>
   </div>
 
   <h2>1. Who we are</h2>
@@ -62,6 +67,10 @@
   or diagnostics.</p>
   <p>We therefore also do not sell or share personal information, and there is
   no profiling or automated decision-making.</p>
+  <p>(If you turn on the optional Money reading section, your device contacts
+  news publishers directly to download their public headlines. Those publishers
+  see the request the way any website does. Nothing about you is added to it,
+  and nothing comes back to us — see section 6.)</p>
 
   <h2>4. Permissions, and why each exists</h2>
   <table>
@@ -83,11 +92,13 @@
     <tr><td>Camera</td><td>Only when you tap to photograph a receipt. Spendly
       hands you to your device's own camera and receives back the one photo you
       take.</td></tr>
+    <tr><td>Internet</td><td>Only for the optional <strong>Money reading</strong>
+      section (see section 6). Off by default. Nothing else in Spendly uses
+      it.</td></tr>
   </table>
-  <p>Spendly requests <strong>no internet permission</strong> on Android. It
-  also requests <strong>no SMS, contacts, location or notification-access
-  permission</strong> — it cannot read your messages, your notifications, your
-  contacts or where you are.</p>
+  <p>Spendly requests <strong>no SMS, contacts, location or
+  notification-access permission</strong> — it cannot read your messages, your
+  notifications, your contacts or where you are.</p>
 
   <h2>5. Things you share into Spendly</h2>
   <p>You can hand Spendly a single item to save you typing:</p>
@@ -108,9 +119,10 @@
       library, and it does no background scanning. Nothing reaches Spendly
       unless you share it.</li>
     <li><strong>Nothing is sent anywhere.</strong> Recognition and parsing
-      happen entirely on your phone. As above, this version of the app has no
-      internet permission, so it could not transmit the text or the image even
-      if it tried.</li>
+      happen entirely on your phone. Nothing you share or scan is ever
+      transmitted, and the Money reading section (section 6) is completely
+      separate from it — it only ever downloads public headlines and never
+      uploads anything.</li>
     <li><strong>Nothing is saved without you.</strong> Every capture is
       presented as a draft you confirm, edit or discard. Spendly never writes
       to your records on its own.</li>
@@ -119,7 +131,30 @@
   a transaction, in the app's own private folder, exactly like a receipt you
   attach by hand.</p>
 
-  <h2>6. Files you create yourself</h2>
+  <h2>6. Money reading (optional, off by default)</h2>
+  <p>Spendly can show a list of finance headlines from public news feeds. This
+  is the <strong>only</strong> feature that uses the internet, and it is
+  <strong>off until you turn it on</strong> in Settings &rarr; Money
+  reading.</p>
+  <p><strong>What is sent.</strong> A plain request for each publisher's public
+  headline list — the same request your browser makes when it loads a page. It
+  carries no account, no device identifier, no advertising ID, no cookies and
+  none of your financial data. We do not add anything to it. As with any
+  internet request, the publisher's server sees the IP address it came from;
+  that is inherent to downloading anything and is not something Spendly
+  collects, receives or stores.</p>
+  <p><strong>What is stored.</strong> The headlines themselves are cached on
+  your device so the section works offline. Turning the feature off deletes
+  that cache.</p>
+  <p><strong>Reading an article</strong> opens it in your own browser, not
+  inside Spendly. From that point the publisher's own privacy policy applies —
+  Spendly is not involved and cannot see what you read.</p>
+  <p><strong>Current sources:</strong> Mint, Economic Times, Business Standard
+  and MarketWatch.</p>
+  <p>We receive nothing from any of this. There is no server of ours in the
+  path.</p>
+
+  <h2>7. Files you create yourself</h2>
   <p>Spendly can export your data at your request: <strong>CSV export</strong>,
   <strong>JSON backup</strong> and <strong>PDF report</strong> are written to a
   temporary file and handed to your device's share sheet. CSV and backup import
@@ -128,7 +163,7 @@
   to (email, cloud drive, messaging) and is governed by that app's privacy
   policy, not this one. We never see these files.</p>
 
-  <h2>7. Data retention and deletion</h2>
+  <h2>8. Data retention and deletion</h2>
   <p>Your data stays until you remove it. You are always in control:</p>
   <ul class="clean">
     <li>Delete any individual record; it moves to <strong>Recently
@@ -141,19 +176,19 @@
   <p>Because we hold no copy, there is nothing for you to request from us and
   nothing for us to delete on your behalf.</p>
 
-  <h2>8. Children</h2>
+  <h2>9. Children</h2>
   <p>Spendly is a general-purpose finance tool and is not directed at children.
   We do not knowingly collect data from anyone — including children — because
   we do not collect data at all.</p>
 
-  <h2>9. Your rights</h2>
+  <h2>10. Your rights</h2>
   <p>Privacy laws such as the GDPR (EEA/UK) and CCPA/CPRA (California) give you
   rights to access, correct, export and delete your personal data. In Spendly
   you exercise all of these directly in the app: your data is on your device,
   you can export it at any time, and you can erase it completely. There is no
   request to submit because there is no server-side copy.</p>
 
-  <h2>10. Changes to this policy</h2>
+  <h2>11. Changes to this policy</h2>
   <p>If a future version of Spendly introduces any feature that transmits data
   — for example optional cloud sync, optional AI features that use a
   third-party model provider, analytics, or advertising — we will:</p>
@@ -172,7 +207,7 @@
   </ol>
   <p>Your existing financial records would remain on your device regardless.</p>
 
-  <h2>11. Contact</h2>
+  <h2>12. Contact</h2>
   <p>Questions, or want something clarified? Email
   <a href="mailto:appricity.support@gmail.com">appricity.support@gmail.com</a>.</p>
 
