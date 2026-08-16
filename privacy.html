@@ -19,7 +19,7 @@
 
 <main class="wrap">
 
-  <p class="muted"><strong>Last updated:</strong> 10 August 2026</p>
+  <p class="muted"><strong>Last updated:</strong> 16 August 2026</p>
 
   <div class="card highlight">
     <h3 style="margin-top:0">The short version</h3>
@@ -77,13 +77,49 @@
     <tr><td>Biometrics / device passcode</td><td>The optional App Lock.
       Authentication is performed by the operating system; Spendly never sees
       your fingerprint, face data or passcode.</td></tr>
-    <tr><td>Photos</td><td>Only when you tap to attach a receipt. The system
-      picker returns the single image you choose; Spendly cannot browse your
-      library.</td></tr>
+    <tr><td>Photos</td><td>Only when you tap to attach or scan a receipt. The
+      system picker returns the single image you choose; Spendly cannot browse
+      your library.</td></tr>
+    <tr><td>Camera</td><td>Only when you tap to photograph a receipt. Spendly
+      hands you to your device's own camera and receives back the one photo you
+      take.</td></tr>
   </table>
-  <p>Spendly requests <strong>no internet permission</strong> on Android.</p>
+  <p>Spendly requests <strong>no internet permission</strong> on Android. It
+  also requests <strong>no SMS, contacts, location or notification-access
+  permission</strong> — it cannot read your messages, your notifications, your
+  contacts or where you are.</p>
 
-  <h2>5. Files you create yourself</h2>
+  <h2>5. Things you share into Spendly</h2>
+  <p>You can hand Spendly a single item to save you typing:</p>
+  <ul class="clean">
+    <li><strong>Share a message to Spendly</strong> — from your messaging app,
+      share a bank or payment alert. Spendly reads the amount, merchant, date
+      and reference out of it on your device and shows you a draft to
+      confirm.</li>
+    <li><strong>Scan a receipt or screenshot</strong> — photograph a receipt,
+      or pick a payment screenshot. The text is recognised <strong>on your
+      device</strong> by a model built into the app, not by a service.</li>
+    <li><strong>Paste text</strong> into Quick Add.</li>
+  </ul>
+  <p>Three things are true of all of these:</p>
+  <ol>
+    <li><strong>Spendly only ever sees the single item you hand it.</strong> It
+      has no ability to read your inbox, your notifications or your photo
+      library, and it does no background scanning. Nothing reaches Spendly
+      unless you share it.</li>
+    <li><strong>Nothing is sent anywhere.</strong> Recognition and parsing
+      happen entirely on your phone. As above, this version of the app has no
+      internet permission, so it could not transmit the text or the image even
+      if it tried.</li>
+    <li><strong>Nothing is saved without you.</strong> Every capture is
+      presented as a draft you confirm, edit or discard. Spendly never writes
+      to your records on its own.</li>
+  </ol>
+  <p>Images you scan are stored only if you keep them as a receipt attached to
+  a transaction, in the app's own private folder, exactly like a receipt you
+  attach by hand.</p>
+
+  <h2>6. Files you create yourself</h2>
   <p>Spendly can export your data at your request: <strong>CSV export</strong>,
   <strong>JSON backup</strong> and <strong>PDF report</strong> are written to a
   temporary file and handed to your device's share sheet. CSV and backup import
@@ -92,7 +128,7 @@
   to (email, cloud drive, messaging) and is governed by that app's privacy
   policy, not this one. We never see these files.</p>
 
-  <h2>6. Data retention and deletion</h2>
+  <h2>7. Data retention and deletion</h2>
   <p>Your data stays until you remove it. You are always in control:</p>
   <ul class="clean">
     <li>Delete any individual record; it moves to <strong>Recently
@@ -105,19 +141,19 @@
   <p>Because we hold no copy, there is nothing for you to request from us and
   nothing for us to delete on your behalf.</p>
 
-  <h2>7. Children</h2>
+  <h2>8. Children</h2>
   <p>Spendly is a general-purpose finance tool and is not directed at children.
   We do not knowingly collect data from anyone — including children — because
   we do not collect data at all.</p>
 
-  <h2>8. Your rights</h2>
+  <h2>9. Your rights</h2>
   <p>Privacy laws such as the GDPR (EEA/UK) and CCPA/CPRA (California) give you
   rights to access, correct, export and delete your personal data. In Spendly
   you exercise all of these directly in the app: your data is on your device,
   you can export it at any time, and you can erase it completely. There is no
   request to submit because there is no server-side copy.</p>
 
-  <h2>9. Changes to this policy</h2>
+  <h2>10. Changes to this policy</h2>
   <p>If a future version of Spendly introduces any feature that transmits data
   — for example optional cloud sync, optional AI features that use a
   third-party model provider, analytics, or advertising — we will:</p>
@@ -136,7 +172,7 @@
   </ol>
   <p>Your existing financial records would remain on your device regardless.</p>
 
-  <h2>10. Contact</h2>
+  <h2>11. Contact</h2>
   <p>Questions, or want something clarified? Email
   <a href="mailto:appricity.support@gmail.com">appricity.support@gmail.com</a>.</p>
 
