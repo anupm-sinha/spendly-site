@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — Spendly</title>
-<meta name="description" content="Spendly's privacy policy. Spendly is an offline expense tracker: your financial data stays on your device.">
+<meta name="description" content="Spendly's privacy policy. Spendly is a local-first expense tracker: your financial data stays on your device, and optional sync is end-to-end encrypted.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,23 +19,38 @@
 
 <main class="wrap">
 
-  <p class="muted"><strong>Last updated:</strong> 16 August 2026</p>
+  <p class="muted"><strong>Last updated:</strong> 26 August 2026</p>
 
   <div class="card highlight">
     <h3 style="margin-top:0">The short version</h3>
-    <p>Spendly is an offline expense tracker. Your financial records —
+    <p>Spendly is a local-first expense tracker. Your financial records —
     transactions, budgets, accounts, goals, notes, tags and receipt photos —
-    are stored <strong>only on your device</strong>. We do not have a copy of
-    them. There is no account to create and nothing to sign in to.</p>
-    <p><strong>Spendly never sends your financial data anywhere.</strong>
-    There is no sync, no analytics, no advertising and no crash reporting.</p>
-    <p style="margin-bottom:0">The app makes exactly one kind of network
-    request, and only if you switch it on: the optional <strong>Money
-    reading</strong> section fetches public finance headlines from a few news
-    publishers. It is <strong>off by default</strong>, it carries nothing about
-    you, and your transactions are never involved. Everything else in Spendly —
-    every calculation, every scan, every backup — works with no connection at
-    all.</p>
+    are stored on <strong>your device</strong>, and the app is fully usable
+    with no account and no connection at all.</p>
+    <p><strong>We cannot read your transactions.</strong> That holds whether or
+    not you use sync, and it is a statement about mathematics rather than about
+    our intentions: if you turn sync on, each record is encrypted on your phone
+    before it is uploaded, using a key derived from a passphrase that is never
+    sent to us. What our servers hold is unreadable to us.</p>
+    <p>There is <strong>no analytics, no advertising and no crash
+    reporting</strong>, and we never sell or share your information.</p>
+    <p>Two features use the internet, and <strong>both are off until you turn
+    them on</strong>:</p>
+    <ul class="clean">
+      <li><strong>Sync</strong> — signs you in and stores an encrypted copy of
+        your records so you can restore them or use a second device.</li>
+      <li><strong>Money reading</strong> — fetches public finance headlines. It
+        carries nothing about you and never involves your transactions.</li>
+    </ul>
+    <p style="margin-bottom:0">Everything else — every calculation, every scan,
+    every local backup — works with no connection.</p>
+  </div>
+
+  <div class="card">
+    <p style="margin:0"><strong>If you forget your sync passphrase, the
+    encrypted copy cannot be recovered.</strong> Not by you, and not by us: we
+    do not have the key, which is the whole point. Keep using <strong>Back up
+    (JSON)</strong> as well.</p>
   </div>
 
   <h2>1. Who we are</h2>
@@ -57,20 +72,66 @@
     <li>Receipt photos you choose to attach, stored as files in the app's own
       directory</li>
   </ul>
-  <p>We never receive any of this. It is not uploaded, backed up to our
-  systems, or shared with anyone, because there is nowhere for it to go.</p>
+  <p><strong>With sync off, none of this leaves your device.</strong></p>
+  <p><strong>With sync on</strong>, a copy is stored on our servers (Google
+  Cloud Firestore) — but <strong>encrypted before it leaves your phone</strong>,
+  with AES-256-GCM under a key derived from your passphrase using Argon2id. We
+  hold the ciphertext and nothing else. The passphrase is never transmitted, so
+  we cannot decrypt any of it. Not the amount, the payee, the category, the
+  transaction date, the note, or any tag.</p>
+  <p>What the server <em>can</em> see about a record, because these are needed
+  to merge changes between devices without reading them, is:</p>
+  <ul class="clean">
+    <li>its type — <code>expense</code>, <code>goal</code>, and so on — and
+      therefore how many of each you have;</li>
+    <li>when it was last changed, when it was uploaded, and whether it is
+      deleted;</li>
+    <li>its internal record id. These ids embed the moment the record was
+      created, so for entries you add as you spend, the creation time is a
+      rough proxy for when the transaction happened. The amount, payee and
+      category remain encrypted;</li>
+    <li>for categories and accounts, the id is a stable name such as
+      <code>food</code> — so the server can tell which built-in categories you
+      kept, but not what you spent in any of them;</li>
+    <li>the approximate size of each record.</li>
+  </ul>
+  <p>We would rather spell that out than claim the stored data is completely
+  opaque. The contents are unreadable to us; the shape of the ledger is not
+  entirely.</p>
+  <p><strong>Receipt photos are not synced</strong> in this version. They stay
+  on your device.</p>
+  <p>Spendly also opts out of Android's own backup system, so the operating
+  system does not copy your ledger to Google Drive either. Moving your data to
+  a new phone is something you choose to do — with a JSON backup, or with
+  sync.</p>
 
   <h2>3. What we collect</h2>
-  <p><strong>Nothing.</strong> Spendly contains no analytics, no advertising,
-  no crash reporting, no telemetry and no tracking of any kind. We do not
-  collect device identifiers, advertising IDs, IP addresses, usage statistics
-  or diagnostics.</p>
-  <p>We therefore also do not sell or share personal information, and there is
-  no profiling or automated decision-making.</p>
+  <p><strong>With sync off: nothing.</strong> Spendly contains no analytics, no
+  advertising, no crash reporting, no telemetry and no tracking of any kind. We
+  do not collect device identifiers, advertising IDs, usage statistics or
+  diagnostics.</p>
+  <p><strong>If you sign in</strong>, we necessarily receive:</p>
+  <ul class="clean">
+    <li>the identifier you signed in with — your email address, or your phone
+      number, or the Google account you chose;</li>
+    <li>a user id that Firebase assigns you;</li>
+    <li>if you enable sync, the encrypted copy of your records described above,
+      plus the salt needed to re-derive your key on another device.</li>
+  </ul>
+  <p>Our sign-in provider (Firebase Authentication) also keeps its own security
+  logs, which include the IP address a sign-in came from. We do not build a
+  profile, and there is no automated decision-making. We never sell or share
+  personal information.</p>
   <p>(If you turn on the optional Money reading section, your device contacts
   news publishers directly to download their public headlines. Those publishers
   see the request the way any website does. Nothing about you is added to it,
   and nothing comes back to us — see section 6.)</p>
+
+  <h2>3a. Deleting your data</h2>
+  <p>Turning sync off offers to delete the cloud copy, and choosing that
+  removes every record and your key material from our servers. Your device
+  keeps everything either way. To delete the account itself, email us at the
+  address in section 1.</p>
 
   <h2>4. Permissions, and why each exists</h2>
   <table>
@@ -92,9 +153,13 @@
     <tr><td>Camera</td><td>Only when you tap to photograph a receipt. Spendly
       hands you to your device's own camera and receives back the one photo you
       take.</td></tr>
-    <tr><td>Internet</td><td>Only for the optional <strong>Money reading</strong>
-      section (see section 6). Off by default. Nothing else in Spendly uses
+    <tr><td>Internet</td><td>Only for the two optional features:
+      <strong>sync</strong> (section 2) and <strong>Money reading</strong>
+      (section 6). Both are off by default, and nothing else in Spendly uses
       it.</td></tr>
+    <tr><td>Network state</td><td>Required by the sync library to tell whether
+      the device is online. It reveals connectivity, never what you
+      do.</td></tr>
   </table>
   <p>Spendly requests <strong>no SMS, contacts, location or
   notification-access permission</strong> — it cannot read your messages, your
@@ -118,11 +183,10 @@
       has no ability to read your inbox, your notifications or your photo
       library, and it does no background scanning. Nothing reaches Spendly
       unless you share it.</li>
-    <li><strong>Nothing is sent anywhere.</strong> Recognition and parsing
-      happen entirely on your phone. Nothing you share or scan is ever
-      transmitted, and the Money reading section (section 6) is completely
-      separate from it — it only ever downloads public headlines and never
-      uploads anything.</li>
+    <li><strong>Recognition and parsing happen entirely on your phone.</strong>
+      The message you share and the image you scan are never transmitted, and
+      neither is the text read out of them. If the resulting transaction is
+      later synced, it travels encrypted like any other record.</li>
     <li><strong>Nothing is saved without you.</strong> Every capture is
       presented as a draft you confirm, edit or discard. Spendly never writes
       to your records on its own.</li>
@@ -132,8 +196,7 @@
   attach by hand.</p>
 
   <h2>6. Money reading (optional, off by default)</h2>
-  <p>Spendly can show a list of finance headlines from public news feeds. This
-  is the <strong>only</strong> feature that uses the internet, and it is
+  <p>Spendly can show a list of finance headlines from public news feeds. It is
   <strong>off until you turn it on</strong> in Settings &rarr; Money
   reading.</p>
   <p><strong>What is sent.</strong> A plain request for each publisher's public
@@ -173,25 +236,46 @@
       everything</li>
     <li>Uninstalling the app removes all of its local data</li>
   </ul>
-  <p>Because we hold no copy, there is nothing for you to request from us and
-  nothing for us to delete on your behalf.</p>
+  <p><strong>With sync off</strong>, we hold no copy, so there is nothing to
+  request from us and nothing for us to delete on your behalf.</p>
+  <p><strong>With sync on</strong>, there is a copy, and you can remove it:</p>
+  <ul class="clean">
+    <li><strong>Settings → Turn off sync → "Turn off and delete"</strong>
+      erases the encrypted copy and the key material from our servers. Your
+      device keeps everything.</li>
+    <li>To delete the account itself (the email, phone number or Google
+      identifier you signed in with, and its Firebase user id), email
+      <a href="mailto:appricity.support@gmail.com">appricity.support@gmail.com</a>
+      and we will remove it.</li>
+    <li>Bear in mind we cannot read the stored records, so we cannot export or
+      correct them on your behalf — only delete them. Export lives in the app,
+      where the data is readable.</li>
+  </ul>
 
   <h2>9. Children</h2>
   <p>Spendly is a general-purpose finance tool and is not directed at children.
-  We do not knowingly collect data from anyone — including children — because
-  we do not collect data at all.</p>
+  We do not knowingly collect data from children. With sync off we collect
+  nothing from anyone; with sync on, what we receive is listed in section 3.</p>
 
   <h2>10. Your rights</h2>
   <p>Privacy laws such as the GDPR (EEA/UK) and CCPA/CPRA (California) give you
-  rights to access, correct, export and delete your personal data. In Spendly
-  you exercise all of these directly in the app: your data is on your device,
-  you can export it at any time, and you can erase it completely. There is no
-  request to submit because there is no server-side copy.</p>
+  rights to access, correct, export and delete your personal data.</p>
+  <p>With sync off, you exercise all of these directly in the app: your data is
+  on your device, you can export it at any time, and you can erase it
+  completely. There is no request to submit because there is no server-side
+  copy.</p>
+  <p>With sync on, the same is true of the readable data — it is on your device
+  and under your control — and the additional server-side copy is covered in
+  section 8: you can delete it from the app, and delete the account by email.
+  We cannot provide access to or correction of the encrypted records, because
+  we cannot read them; that is a consequence of the design rather than a
+  refusal, and the readable original is always in your hands.</p>
 
   <h2>11. Changes to this policy</h2>
-  <p>If a future version of Spendly introduces any feature that transmits data
-  — for example optional cloud sync, optional AI features that use a
-  third-party model provider, analytics, or advertising — we will:</p>
+  <p>Optional encrypted sync arrived in version 1.1 and is documented above. If
+  a future version introduces any <em>further</em> feature that transmits data
+  — for example optional AI features that use a third-party model provider,
+  analytics, or advertising — we will:</p>
   <ol>
     <li>Update this policy and its "Last updated" date <strong>before</strong>
       that version is released;</li>
@@ -212,7 +296,7 @@
   <a href="mailto:appricity.support@gmail.com">appricity.support@gmail.com</a>.</p>
 
   <footer>
-    <p>Spendly — an offline-first expense &amp; money manager.
+    <p>Spendly — a local-first expense &amp; money manager.
     <a href="index.html">Back to home</a></p>
   </footer>
 
