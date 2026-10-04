@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Toolpup</title>
+<meta name="description" content="Toolpup's privacy policy. Toolpup is a local-first collection of everyday tools: your data stays on your phone, and the account is optional.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="badge">T</div>
+    <h1>Privacy Policy</h1>
+    <p>Toolpup for Android · published by Appricity</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <p class="muted"><strong>Effective:</strong> 4 October 2026</p>
+
+  <div class="card highlight">
+    <h3 style="margin-top:0">The short version</h3>
+    <p>Toolpup is a collection of everyday tools: to-dos, expenses, trackers,
+    calculators, games and more. It is built to work on <strong>your
+    phone</strong>. You never need an account, there is no Toolpup server, and
+    there is <strong>no advertising, no analytics and no tracking SDK</strong>.</p>
+    <p>An account is optional and only says who you are. A few tools use the
+    internet when you use them (weather, currency rates, news, translation,
+    holidays, wallpapers), and the Claude assistant is off until you turn it
+    on with your own key. Each is described below.</p>
+  </div>
+
+  <h2>1. What stays on your phone</h2>
+  <p>Everything you enter — lists, notes, expenses, health logs, documents,
+  photos you attach, your profile, settings — is stored only in the app's
+  private storage on your device. Uninstalling the app deletes it. Toolpup
+  never uploads it anywhere unless you use one of the features below.</p>
+  <p><strong>Backups.</strong> A backup is a file handed to the Android share
+  sheet (or copied to the clipboard); where it goes (Drive, email, another app)
+  is your choice. Your Claude API key, the files in Doc Vault and the text
+  recognised in them are never included in a backup.</p>
+  <p><strong>On-device intelligence.</strong> Search ("Ask Toolpup"),
+  quick-add parsing, insights, receipt reading, document text recognition,
+  expiry-date detection and QR/barcode scanning run on your phone. Camera
+  images used for scanning are processed on the device and are kept only if
+  you save them (for example, a scanned document in Doc Vault).</p>
+
+  <h2>2. Features that use the internet</h2>
+  <p>These features send the minimum needed to the service named, only when
+  you use them:</p>
+  <ul class="clean">
+    <li><strong>Weather</strong> — Open-Meteo (api.open-meteo.com,
+      geocoding-api.open-meteo.com): a city name you type, or your approximate
+      location if you allow it.</li>
+    <li><strong>Currency converter</strong> — ExchangeRate-API
+      (api.exchangerate-api.com): the base currency.</li>
+    <li><strong>News reader</strong> — Google News RSS (news.google.com): the
+      category, search words and region you pick.</li>
+    <li><strong>Translate</strong> — MyMemory (api.mymemory.translated.net) and
+      LibreTranslate: the text you ask to translate and the language pair.</li>
+    <li><strong>Scanning models</strong> — Google Play services: a one-time
+      download of Google's text and barcode readers; your images never leave
+      the phone.</li>
+    <li><strong>Holidays</strong> — Nager.Date (date.nager.at): the country and
+      year.</li>
+    <li><strong>Wallpapers</strong> — Lorem Picsum (picsum.photos): image
+      requests.</li>
+    <li><strong>Voice input</strong> — your phone's speech recogniser (usually
+      Google): your speech is handled by that app under its own policy;
+      Toolpup receives only the text.</li>
+    <li><strong>Claude assistant</strong> (optional) — Anthropic
+      (api.anthropic.com): see section 4.</li>
+    <li><strong>Optional account</strong> — Google Firebase Authentication: see
+      section 3.</li>
+  </ul>
+  <p>These services receive your IP address as part of any internet request.
+  Toolpup adds no identifiers of its own.</p>
+
+  <h2>3. Optional account (only if you sign in)</h2>
+  <p>You never need an account to use Toolpup, and nothing in the app is
+  locked behind one. If you choose to sign in (Settings → Account, or My
+  Profile):</p>
+  <ul class="clean">
+    <li>Sign-in is provided by <strong>Google Firebase Authentication</strong>.
+      Depending on the method you pick, Firebase stores your <strong>email
+      address</strong> (email or Google sign-in), your <strong>phone
+      number</strong> (phone sign-in), the <strong>name on your Google
+      account</strong> (Google sign-in), and a <strong>user id</strong>
+      Firebase creates. Passwords are handled by Firebase; Toolpup never sees
+      or stores them. Like any sign-in service, Firebase also processes your IP
+      address and basic device information to keep sign-in secure.</li>
+    <li><strong>Phone sign-in</strong> sends a one-time code to your number by
+      SMS. Before sending it, Firebase checks that the app is genuine using
+      Google Play Integrity (or, failing that, a reCAPTCHA).</li>
+    <li><strong>Google sign-in</strong> uses your phone's Google account picker.
+      Toolpup receives your name and email; it does not download your profile
+      photo.</li>
+    <li>The account is <strong>identity only</strong>. Your name and email or
+      number can appear on your profile in the app. No tool data — notes,
+      expenses, health logs, documents, backups — is sent to Firebase or linked
+      to the account.</li>
+    <li>On the phone, Firebase keeps your signed-in session. Account details
+      are never put in a backup, and the Claude assistant cannot read
+      them.</li>
+    <li>Toolpup and Spendly, both published by Appricity, share the same
+      sign-in service, so one Appricity account works in both.</li>
+    <li>Google processes this data under its own terms:
+      <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>
+      and <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a>.</li>
+  </ul>
+  <p><strong>Deleting your account.</strong> In the app: <strong>Settings →
+  Account → Delete account</strong>, then confirm. This deletes your account
+  and the details above from Firebase straight away (for safety, Firebase may
+  ask you to sign in again first). Everything on your phone stays exactly as it
+  is. <strong>Sign out</strong> (same place) ends the session on this phone
+  without deleting the account. If you no longer have the app, see
+  <a href="delete-account.html">Delete your account</a>.</p>
+
+  <h2>4. Claude assistant (optional, off by default)</h2>
+  <p>If you turn on the Claude assistant and enter your own Anthropic API
+  key:</p>
+  <ul class="clean">
+    <li>Your key is stored in Android's encrypted storage on the phone and sent
+      only to Anthropic.</li>
+    <li>When you send a message, Toolpup sends Anthropic your message and the
+      conversation so far. To answer, the assistant may ask the app for
+      specific data (for example "September's expenses" or "today's to-dos").
+      The app reads that data on your phone and sends it to Anthropic as part
+      of the conversation. The screen shows every such data lookup.</li>
+    <li>It can never read saved passwords, Doc Vault, locked notes, your
+      profile or your account.</li>
+    <li>Nothing is sent until you send a message. The conversation is kept only
+      while the assistant screen is open.</li>
+    <li>Anthropic processes this data under its own terms and privacy policy
+      (<a href="https://www.anthropic.com/legal/privacy">anthropic.com/legal/privacy</a>),
+      using your API account.</li>
+  </ul>
+  <p>Turn the assistant off or delete the key at any time in Settings → Claude
+  assistant.</p>
+
+  <h2>5. Permissions</h2>
+  <ul class="clean">
+    <li><strong>Internet, network state</strong> — the features in section 2,
+      and the optional sign-in.</li>
+    <li><strong>Notifications, run at startup</strong> — reminders you set, and
+      re-arming them after a restart.</li>
+    <li><strong>Vibrate</strong> — haptic feedback.</li>
+    <li><strong>Approximate location</strong> (optional) — local weather, only
+      if you allow it.</li>
+    <li><strong>Camera</strong> (optional) — scanning receipts, documents and QR
+      codes, and photos you attach.</li>
+  </ul>
+  <p>Toolpup does not request microphone access; voice input is handled by
+  your phone's speech app.</p>
+
+  <h2>6. Children</h2>
+  <p>Toolpup is a general-audience utility app and is not directed at children
+  under 13.</p>
+
+  <h2>7. Changes</h2>
+  <p>If this policy changes, the new version will be published at this address
+  with a new effective date.</p>
+
+  <h2>8. Contact</h2>
+  <p>Questions, or want something clarified? Email
+  <a href="mailto:appricity.support@gmail.com">appricity.support@gmail.com</a>.</p>
+
+  <footer>
+    <p>Toolpup — 99 everyday tools in one private app, by Appricity.
+    <a href="../index.html">Appricity home</a></p>
+  </footer>
+
+</main>
+</body>
+</html>
